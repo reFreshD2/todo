@@ -2,7 +2,8 @@
 
 namespace App\Utils;
 
-class Runnable {
+class Runnable
+{
     private $twig;
 
     public function __construct()
@@ -12,17 +13,21 @@ class Runnable {
         );
     }
 
-    public function run() {
+    public function run()
+    {
         $path = $_SERVER['REQUEST_URI'];
-        if ($path == '/') {
-            //echo file_get_contents('http://157.230.106.225:8888/html/index.html');
-            echo $this->twig->render('todo.html.twig', ['script'=>'app']);
-        }
-        if ($path == '/auth') {
-            echo $this->twig->render('auth.html.twig', ['script'=>'auth']);
-        }
-        if ($path == '/reg') {
-            echo $this->twig->render('reg.html.twig', ['script'=>'reg']);
+        switch ($path) {
+            case '/':
+                echo $this->twig->render('todo.html.twig', ['script' => 'app']);
+                break;
+            case '/authorization':
+                echo $this->twig->render('auth.html.twig', ['script' => 'auth']);
+                break;
+            case '/registration':
+                echo $this->twig->render('reg.html.twig', ['script' => 'reg']);
+                break;
+            default:
+                echo $this->twig->render('404.html.twig');
         }
     }
 }
