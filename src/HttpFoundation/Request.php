@@ -13,4 +13,12 @@ class Request
     {
         return $_SERVER['REQUEST_URI'];
     }
+
+    public static function get($name) {
+        return $_POST[$name];
+    }
+
+    public static function getContent() {
+        return $_POST;
+    }
 }

@@ -4,6 +4,6 @@ namespace App\Storage\Interfaces;
 
 interface UserStorageInterface {
     public function create($data);
-    public function findBy($data);
+    public function getBy($data);
     public function haveIn($data);
 }

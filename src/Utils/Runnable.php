@@ -17,8 +17,8 @@ class Runnable
         $this->twig = new \Twig\Environment(
             new \Twig\Loader\FilesystemLoader([dirname(__DIR__, 2) . '/templates'])
         );
-        /*$userStorage = new UserStorage();
-        $this->userRepository = new UserRepository($userStorage);*/
+        $userStorage = new UserStorage();
+        $this->userRepository = new UserRepository($userStorage);
     }
 
     public function run()

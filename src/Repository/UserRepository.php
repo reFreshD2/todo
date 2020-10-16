@@ -9,12 +9,12 @@ use App\Storage\Interfaces\UserStorageInterfaces;
 class UserRepository implements UserRepositoryInterface {
     private $storage;
 
-    public function __construct(UserStorageInterfaces $storage)
+    public function __construct($storage)
     {
         $this->storage = $storage;
     }
 
-    public function create(User $user) {
+    public function create($user) {
         return $this->storage->create($user->json());
     }
 
