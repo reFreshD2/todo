@@ -4,12 +4,12 @@ $connection = new mysqli('localhost', 'todo', 'password', 'todos');
 $connection->query("CREATE TABLE user(
    id INT AUTO_INCREMENT,
    login VARCHAR(20) NOT NULL,
-   password VARCHAR(20) NOT NULL,
+   password VARCHAR(40) NOT NULL,
    primary key (id)
 )");
 $connection->query("CREATE TABLE todo(
    id INT AUTO_INCREMENT,
-   name VARCHAR(20) NOT NULL,
+   name VARCHAR(100) NOT NULL,
    status BOOL NOT NULL,
    primary key (id)
 )");

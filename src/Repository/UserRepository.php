@@ -22,7 +22,7 @@ class UserRepository implements UserRepositoryInterface {
         return $this->storage->findBy($data);
     }
 
-    public function haveIn($data) {
-        return $this->storage->haveIn($data);
+    public function isUnique($data) {
+        return $this->storage->isUnique($data);
     }
 }

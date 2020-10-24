@@ -19,6 +19,6 @@ class Request
     }
 
     public static function getContent() {
-        return $_POST;
+        return file_get_contents('php://input');
     }
 }

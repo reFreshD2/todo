@@ -4,10 +4,11 @@ namespace App\HttpFoundation;
 
 class JSONResponse
 {
-    public static $statusTexts = [
+    public $statusTexts = [
         200 => 'OK',
         404 => 'Not Found',
-        422 => 'Unprocessable Entity'
+        422 => 'Unprocessable Entity',
+        500 => 'Internal Server Error'
     ];
 
     protected $content;
@@ -21,7 +22,7 @@ class JSONResponse
 
     public function send()
     {
-        header("HTTP/1.1 $this->statusCode" . self::$statusText[$this->statusCode],true,$this->statusCode);
+        header("HTTP/1.1 $this->statusCode" . $this->statusTexts[$this->statusCode], true, $this->statusCode);
         header("Content-type:application/json");
         echo json_encode($this->content);
         return $this;
